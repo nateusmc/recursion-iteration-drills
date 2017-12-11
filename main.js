@@ -31,10 +31,10 @@ function doubleArray(arr) {
 
 //3 Reverse String
 function reverseString(string) {
-  if (string === '') {
-    return '';
-  }
-  return string.slice(-1) + reverseString(string.slice(0, -1));
+	if (string === '') {
+		return '';
+	}
+	return string.slice(-1) + reverseString(string.slice(0, -1));
 
 }
 
@@ -42,38 +42,38 @@ function reverseString(string) {
 
 //4 nth Triangular Number
 function triangular(n) {
-if (n === 0) {
-  return 0;
+	if (n === 0) {
+		return 0;
+	}
+
+	return n + triangular(n - 1);
 }
 
-return n + triangular(n - 1);
-//return 3 + triangular(2)
-//triangular(1)
-//triangular(0)
-//satisfies base case and returns 0
-}
-
-console.log(triangular(3));
-
-
-/*
-
-                          *               *
-            *           *    *          *   *
-*     |   *   *  |   *    *    *  |   *   *   *
-                                    *   *   *   *
-
-1st       2nd          3rd             nth?
-
-*/
+// console.log(triangular(3));
 
 //5 String Splitter
+function split(string, separator) {
+	const index = string.indexOf(separator);
+    
+	if (index === -1) return [string];
+    
+	return [string.slice(0, index), ...split(string.slice(index+1), separator)];
+}
 
+// console.log(split('really big fat dog', ' '));
 
 
 //6 Binary Representation
+function binarize(dec) {
+	if (dec === 0) return '';
 
+	const binary = dec % 2;
 
+	return binary + binarize(Math.floor(dec / 2));
+}
+
+console.log(binarize(27)); // output: '11011'
+// 16 + 8 + 0 + 2 + 1
 
 //7 Anagrams
 
