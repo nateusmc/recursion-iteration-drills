@@ -54,9 +54,9 @@ function triangular(n) {
 //5 String Splitter
 function split(string, separator) {
 	const index = string.indexOf(separator);
-    
+
 	if (index === -1) return [string];
-    
+
 	return [string.slice(0, index), ...split(string.slice(index+1), separator)];
 }
 
@@ -72,12 +72,26 @@ function binarize(dec) {
 	return binary + binarize(Math.floor(dec / 2));
 }
 
-console.log(binarize(27)); // output: '11011'
+// console.log(binarize(27)); // output: '11011'
 // 16 + 8 + 0 + 2 + 1
 
 //7 Anagrams
+    let prefix = '';
 
-
+function anagram(word, prefix) {
+  if (word.length <= 1) {
+    console.log(`The word is ${word + prefix}`);
+  }
+  else {
+    for (let i = 0; i < word.length; i++){
+      let currentLetter = word.substring(i, i+1);
+      let prevLetter = word.substring(0, i);
+      let afterLetter = word.substring(i+1);
+      anagram(prevLetter + afterLetter, prefix + currentLetter);
+    }
+  }
+}
+// console.log(anagram('east', prefix));
 
 //8 Animal Hierarchy
 
